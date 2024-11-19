@@ -1,0 +1,73 @@
+// This pseudocode is intended to display employee net pay values.
+// All employees have a standard $45 deduction from their checks.
+// If an employee does not earn enough to cover the deduction
+// an error message is displayed.
+start
+   Declarations
+      string name
+      num hours
+      num rate
+      string DEDUCTION = 45
+      string EOFNAME = "ZZZ"
+      num gross
+      num net
+   output "Enter first name or ", EOFNAME, " to quit"
+   input name
+   if name not equal to EOFNAME
+      output "Enter hours worked for ", name
+      input hours
+      output "Enter hourly rate for ", name
+      input rate
+      gross = hours * rate
+      net = gross - DEDUCTION
+      while net > 0 then
+         output "Net pay for ", name, " is ", net
+      else
+          output "Deductions not covered. Net is 0."
+      endwhile
+      output "Enter next name or ", EOFNAME, " to quit"
+      input name
+   endif
+   output "End of job"
+stop
+
+Debugging: 
+Incorrect use of an if statement instead of a while loop:
+
+In the original pseudocode, an if statement was used to check whether the name is not equal to "ZZZ." This resulted in the program executing this condition only once, and it didn't allow for processing multiple employees.
+
+The corrected pseudocode replaced the if statement with a while loop to continue processing as long as the name is not equal to "ZZZ," allowing for multiple employee entries.
+
+Incorrect use of a while loop for net pay check:
+
+In the original pseudocode, a while loop was used to check if the net pay is greater than 0, which could lead to an infinite loop as it didn't update the value of net within the loop.
+
+The corrected pseudocode replaced the while loop with an if statement to properly check if the net pay is greater than or equal to 0.
+
+Comparison for net pay:
+
+In the original pseudocode, the comparison for net pay was set as net > 0, which didn't account for the case where the net pay is exactly equal to 0.
+
+The corrected pseudocode adjusted the comparison to net >= 0 to handle cases where the net pay is zero.
+ 
+Explanation: This pseudocode is designed to calculate and display the net pay for employees, taking into account a fixed deduction of $45 from their gross pay. Here's an explanation of the pseudocode in plain words:
+
+Explanation:
+The program starts by declaring various variables to store employee information, such as name, hours worked, hourly rate, and constants like the deduction amount ($45) and a string ("ZZZ") to signal the end of input.
+
+The user is prompted to enter the first name of an employee or "ZZZ" to quit the program.
+
+The program enters a loop, which continues as long as the user doesn't enter "ZZZ." This loop allows you to process multiple employees one after another.
+
+For each employee, the program prompts the user to input the number of hours worked and the hourly rate.
+The net pay is then calculated by subtracting the fixed deduction ($45) from the gross pay.
+
+The program checks if the net pay is greater than or equal to 0. If it is, it displays the net pay for the employee's name, indicating the employee's take-home pay after deducting $45.
+
+If the net pay is less than 0, meaning that the deductions are not covered, the program displays an error message, indicating that the net pay is less than zero.
+
+After processing an employee, the program prompts the user to enter the next employee's name or "ZZZ" to quit and move on to the next employee.
+
+This process continues for multiple employees until the user enters "ZZZ" to signal the end of input.
+
+Lastly, when the user enters "ZZZ" to quit, the program displays "End of job," indicating that the processing of employee net pay values is complete.
